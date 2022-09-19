@@ -109,3 +109,13 @@ College details
 2. Neha = IIT kharagpur
 3. Monalisa = IIT Delhi
 4. Lucky = IIT Kanpur
+
+
+
+
+
+ // if (Object.keys(rest) != 0)
+    //   return res.status(404).send({
+    //     status: false,
+    //     msg: "Please provide required details only => name, mobile, email & collegeName",
+    //   });

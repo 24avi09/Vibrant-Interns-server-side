@@ -3,8 +3,10 @@ const internModel = require("../models/internModel");
 const mongoose = require("mongoose");
 
 const createIntern = async function (req, res) {
+  
   try {
     let reqData = req.body;
+    // console.log(req.files)
     let { name, mobile, email } = { ...reqData };
     let Name = req.body.collegeName;
 
@@ -24,6 +26,7 @@ const createIntern = async function (req, res) {
 };
 
 const getcollegeIntern = async function (req, res) {
+  res.setHeader('Access-Control-Allow-Origin','*')
   try {
     const collegeName = req.query.collegeName;
     if (!collegeName)
@@ -54,14 +57,14 @@ const getcollegeIntern = async function (req, res) {
         .send({ status: "false", msg: "No intern applied for this college" });
     }
 
-    let internsOf_a_College = {
+    let interests = {
       name,
       fullName,
       logoLink,
-      intern: internDetails,
+      interns: internDetails,
     };
 
-    return res.status(200).send({status: true, data: internsOf_a_College });
+    return res.status(200).send({status: true, data: interests });
   } catch (error) {
     return res.status(500).send({ msg: error.message });
   }
